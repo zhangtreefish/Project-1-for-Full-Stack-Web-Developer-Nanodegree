@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import webbrowser
 import os
 import re
@@ -43,7 +44,7 @@ main_page_head = '''
             -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
             transition: width 2s, height 2s, background-color 2s, transform 2s;
         }
-        //add animation effect
+        //add animation effect: upon hover the posters get bigger
         .movie-tile:hover {
             background-color: #EEE;
             cursor: pointer;
@@ -133,7 +134,7 @@ main_page_content = '''
 
 
 # A single movie entry html template: added col-xs-6 so that iPhone displays two movies in a row instead of one
-# remove width and height from img tag as it distorts some of the poster images.
+# remove width and height from img tag as it distorts some of the smaller poster images,e.g.Chicken Run poster.
 movie_tile_content = '''
 <div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img class="img-responsive" src="{poster_image_url}">
@@ -161,7 +162,6 @@ def create_movie_tiles_content(movies):
             trailer_youtube_id=trailer_youtube_id
         )
     return content
-
 
 def open_movies_page(movies):
     # Create or overwrite the output file
