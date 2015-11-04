@@ -20,6 +20,7 @@ main_page_head = '''
         body {
             padding-top: 80px;
         }
+
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
@@ -42,19 +43,15 @@ main_page_head = '''
             -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
             transition: width 2s, height 2s, background-color 2s, transform 2s;
         }
+        //add animation effect
         .movie-tile:hover {
             background-color: #EEE;
             cursor: pointer;
-            
             -ms-transform: scale(2);
             -webkit-transform: scale(2);
             -moz-transform: scale(2);
             -o- transform: scale(2);
             transform: scale(2);
-        }
-        .click {    
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
         }
         .scale-media {
             padding-bottom: 56.25%;
@@ -89,10 +86,10 @@ main_page_head = '''
               'frameborder': 0
             }));
         });
-        // Animate in the movies when the page loads:slower duration at 1200ms, with 
+        // Animate in the movies when the page loads:slower duration at 800ms
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
-            $(this).next("div").show(1200, showNext); 
+            $(this).next("div").show(800, showNext);
           });
         });
     </script>
@@ -120,13 +117,15 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">Treefish's Movie Trailers</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
-      {movie_tiles}
+        <div class="row">
+            {movie_tiles}
+        </div>
     </div>
   </body>
 </html>
@@ -134,9 +133,10 @@ main_page_content = '''
 
 
 # A single movie entry html template: added col-xs-6 so that iPhone displays two movies in a row instead of one
+# remove width and height from img tag as it distorts some of the poster images.
 movie_tile_content = '''
-<div class="col-xs-6 col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="{poster_image_url}">
     <h2>{movie_title}</h2>
 </div>
 '''
@@ -177,6 +177,12 @@ def open_movies_page(movies):
 
     # open the output file in the browser (in a new tab, if possible)
     url = os.path.abspath(output_file.name)
-    webbrowser.open('file://' + url, new=2)
+    #set chrome as the browser to open my trailers
+    #webbrowser.register('chrome')
+    webbrowser.get("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s").open('file://' + url, new=2)
+    #webbrowser.get()
+    webbrowser.get('windows-default')
+    #webbrowser.open('file://' + url, new=2)
+    #webbrowser.open('file://' + os.path.realpath(filename))
 
 open_movies_page(entertainment.movies)
