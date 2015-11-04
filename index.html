@@ -1,11 +1,4 @@
-import webbrowser
-import os
-import re
-import entertainment
 
-
-# Styles and scripting for the page
-main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,11 +87,7 @@ main_page_head = '''
         });
     </script>
 </head>
-'''
 
-
-# The main page layout and title bar
-main_page_content = '''
   <body>
     <!-- Trailer Video Modal -->
     <div class="modal" id="trailer">
@@ -124,59 +113,43 @@ main_page_content = '''
     </div>
     <div class="container">
         <div class="row">
-            {movie_tiles}
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="9WHdEZbIRpc" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/c/ce/A_river_runs_through_it_cover.jpg">
+    <h2>A River Runs Through It</h2>
+</div>
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="qas5lWp7_R0" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/0/05/Up_%282009_film%29.jpg">
+    <h2>Up</h2>
+</div>
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="PXi3Mv6KMzY" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/7/76/Kungfupanda.jpg">
+    <h2>Kung Fu Panda</h2>
+</div>
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="jVdlxwX6A7g" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/0/00/Chicken_run_ver1.jpg">
+    <h2>Chicken Run</h2>
+</div>
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="wAWrXTn5Www" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/6/64/DrZhivago_Asheet.jpg">
+    <h2>Dr. Zhivago</h2>
+</div>
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="GLeDdzGUTq0" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/6/6e/Moderntimes.jpg">
+    <h2>Modern Times</h2>
+</div>
+
+<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="c3sBBRxDAqk" data-toggle="modal" data-target="#trailer">
+    <img class="img-responsive" src="http://upload.wikimedia.org/wikipedia/en/5/50/RatatouillePoster.jpg">
+    <h2>Rata Touille</h2>
+</div>
+
         </div>
     </div>
   </body>
 </html>
-'''
-
-
-# A single movie entry html template: added col-xs-6 so that iPhone displays two movies in a row instead of one
-# remove width and height from img tag as it distorts some of the poster images.
-movie_tile_content = '''
-<div class="col-xs-6 col-md-6 col-lg-3 movie-tile text-center" style="height:35em" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img class="img-responsive" src="{poster_image_url}">
-    <h2>{movie_title}</h2>
-</div>
-'''
-
-
-def create_movie_tiles_content(movies):
-    # The HTML content for this section of the page
-    content = ''
-    for movie in movies:
-        # Extract the youtube ID from the url
-        youtube_id_match = re.search(
-            r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-        youtube_id_match = youtube_id_match or re.search(
-            r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-        trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
-                              else None)
-
-        # Append the tile for the movie with its content filled in
-        content += movie_tile_content.format(
-            movie_title=movie.title,
-            poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
-        )
-    return content
-
-
-def open_movies_page(movies):
-    # Create or overwrite the output file
-    output_file = open('fresh_tomatoes.html', 'w')
-
-    # Replace the movie tiles placeholder generated content
-    rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies))
-
-    # Output the file
-    output_file.write(main_page_head + rendered_content)
-    output_file.close()
-
-    # open the output file in the browser (in a new tab, if possible)
-    url = os.path.abspath(output_file.name)
-    webbrowser.open('file://' + url, new=2)
-
-open_movies_page(entertainment.movies)
