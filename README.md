@@ -15,6 +15,14 @@ Please go to http://zhangtreefish.github.io/movie-trailer/ to see a short list
 Details
 ------
 
-1.Used objected-oriented Python programing to create the list of films (with class defined in media.py, and object instantiated in entertainment.py), used Python's os module to generate html file, and used Python's webbrowser module to serve HTML.
-2.Followed the style guide per https://www.python.org/dev/peps/pep-0008/#indentation; Used the following site to verify the codes for pep8 requirements: http://pep8online.com/
+1.Used objected-oriented Python programing to create the list of films (with
+class defined in media.py, and object instantiated in entertainment.py), used
+ Python's os module to generate html file, and used Python's webbrowser module
+ to serve HTML.
+
+2.Followed the style guide:
+    https://www.python.org/dev/peps/pep-0008/#indentation;
+Used the following site to verify the codes for pep8 requirements:
+    http://pep8online.com/
+
 3.Shortened some urls using https://goo.gl/
