@@ -3,8 +3,7 @@ import media
 a_river = media.Movie(
     "A River Runs Through It",
     "two brothers growing up in Montana",
-    "https://upload.wikimedia.org/wikipedia/en/c/ce/A_river_runs_through_it_\
-        cover.jpg",  # noqa
+    "https://goo.gl/V2vZLV",  # noqa ;use goo.gl to shorten url
     "https://www.youtube.com/watch?v=9WHdEZbIRpc")  # noqa
 up = media.Movie(
     "Up",
@@ -26,7 +25,7 @@ chicken_run = media.Movie(
 dr_zhivago = media.Movie(
     "Dr. Zhivago",
     "an epic from Russia in early twentieth century",
-    "https://goo.gl/qlcwEI",  # use goo.gl to shorten url
+    "https://goo.gl/qlcwEI",  # used goo.gl to shorten url
     "https://www.youtube.com/watch?v=wAWrXTn5Www")  # noqa
 modern_times = media.Movie(
     "Modern Times",
