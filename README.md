@@ -1,19 +1,17 @@
-# movie-trailer,
+# movie-trailer
 Project 1 of Full Stack Web Developer Nanodegree program at Udacity
 ------------------------------------------------------------------
 
-README
-------
-
-Project 1 of Full Stack Web Developer Nanodegree program at Udacity
+How to Run
+----------
 
 Please go to http://zhangtreefish.github.io/movie-trailer/ to see a short list
  of my favorite films, and click on the poster to view the trailer. If prefer
  to run the project by yourself, please install python and run 'python
  entertainment.py' at bash command.
 
-Details
-------
+Project Details
+---------------
 
 1.Used objected-oriented Python programing to create the list of films (with
 class defined in media.py, and object instantiated in entertainment.py), used
