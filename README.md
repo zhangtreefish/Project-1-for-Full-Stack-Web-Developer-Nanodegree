@@ -8,7 +8,7 @@ How to Run
 Please go to http://zhangtreefish.github.io/movie-trailer/ to see a short list
  of my favorite films, and click on the poster to view the trailer. If prefer
  to run the project by yourself, please install python,clone the repository and
- run 'python fresh_tomato.py' at the bash command.
+ run 'python fresh_tomato.py' at the bash command of the project directory.
 
 Project Details
 ---------------
