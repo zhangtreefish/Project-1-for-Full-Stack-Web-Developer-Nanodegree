@@ -7,8 +7,8 @@ How to Run
 
 Please go to http://zhangtreefish.github.io/movie-trailer/ to see a short list
  of my favorite films, and click on the poster to view the trailer. If prefer
- to run the project by yourself, please install python and run 'python
- entertainment.py' at bash command.
+ to run the project by yourself, please install python,clone the repository and
+ run 'python entertainment.py' at the bash command.
 
 Project Details
 ---------------
