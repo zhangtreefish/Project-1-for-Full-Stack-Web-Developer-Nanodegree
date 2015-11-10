@@ -15,8 +15,8 @@ Project Details
 
 1.Used objected-oriented Python programing to create the list of films (with
 class defined in media.py, and object instantiated in entertainment.py), used
- Python's os module to generate html file, and used Python's webbrowser module
- to serve HTML.
+ Python's _os_ module to generate html file, and used Python's web-browser controller 
+ module _webbrowser_ to serve HTML.
 
 2.Followed the style guide:
     https://www.python.org/dev/peps/pep-0008/#indentation;
