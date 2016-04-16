@@ -148,6 +148,9 @@ def create_movie_tiles_content(movies):
     content = ''
     for movie in movies:
         # Extract the youtube ID from the url
+        # re.search(pattern, string, flags=0): Scan through string \
+        # looking for the first location where the regular expression\
+        #  pattern produces a match, and return a corresponding MatchObject instance
         youtube_id_match = re.search(
             r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
         youtube_id_match = youtube_id_match or re.search(
@@ -156,6 +159,7 @@ def create_movie_tiles_content(movies):
                               else None)
 
         # Append the tile for the movie with its content filled in
+        # template.format(p0, p1, ..., k0=v0, k1=v1, ...):positional arguments ps, keyword arguments ks.
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,

@@ -32,7 +32,7 @@ dr_zhivago = media.Movie(
 modern_times = media.Movie(
     "Modern Times",
     "Charlie Chaplin illuminates industrialization",
-    "https://upload.wikimedia.org/wikipedia/en/6/6e/Moderntimes.jpg",
+    "http://www.moma.org/explore/inside_out/inside_out/wp-content/uploads/2010/11/Modern-Times.jpg",
     "https://www.youtube.com/watch?v=GLeDdzGUTq0")
 ratatouille = media.Movie(
     "Rata Touille",
